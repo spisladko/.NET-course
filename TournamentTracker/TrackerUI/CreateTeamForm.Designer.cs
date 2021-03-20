@@ -286,6 +286,7 @@ namespace TrackerUI
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.Name = "CreateTeamForm";
             this.Text = "Create Team";
+            this.Load += new System.EventHandler(this.CreateTeamForm_Load);
             this.addNewMemberBox.ResumeLayout(false);
             this.addNewMemberBox.PerformLayout();
             this.ResumeLayout(false);

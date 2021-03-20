@@ -147,7 +147,7 @@ namespace TrackerUI
             this.createPrizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createPrizeButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.createPrizeButton.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.createPrizeButton.Location = new System.Drawing.Point(164, 366);
+            this.createPrizeButton.Location = new System.Drawing.Point(156, 366);
             this.createPrizeButton.Name = "createPrizeButton";
             this.createPrizeButton.Size = new System.Drawing.Size(228, 66);
             this.createPrizeButton.TabIndex = 32;
