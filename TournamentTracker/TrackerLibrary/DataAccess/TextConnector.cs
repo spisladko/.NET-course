@@ -21,7 +21,7 @@ namespace TrackerLibrary.DataAccess
             }
             model.Id = currentId;
             people.Add(model);
-            people.SaveToPeopleFile(GlobalConfig.PeopleFile);
+            people.SaveToPeopleFile();
 
             return model;
         }
@@ -40,14 +40,14 @@ namespace TrackerLibrary.DataAccess
             // Add the new item to list
             prizes.Add(model);
             // Convert and save
-            prizes.SaveToPrizeFile(GlobalConfig.PrizesFile);
+            prizes.SaveToPrizeFile();
 
             return model;
         }
 
         public TeamModel CreateTeam(TeamModel model)
         {
-            List<TeamModel> teams = GlobalConfig.TeamsFile.FullFilePath().LoadFile().ConvertToTeamModel(GlobalConfig.PeopleFile);
+            List<TeamModel> teams = GlobalConfig.TeamsFile.FullFilePath().LoadFile().ConvertToTeamModel();
             int currentId = 1;
             if (teams.Count > 0)
             {
@@ -57,14 +57,14 @@ namespace TrackerLibrary.DataAccess
             // Add the new item to list
             teams.Add(model);
             // Convert and save
-            teams.SaveToTeamsFile(GlobalConfig.TeamsFile);
+            teams.SaveToTeamsFile();
 
             return model;
         }
 
         public void CreateTournament(TournamentModel model)
         {
-            List<TournamentModel> tournaments = GlobalConfig.TournamentsFile.FullFilePath().LoadFile().ConvertToTournamentModel(GlobalConfig.TeamsFile, GlobalConfig.PeopleFile, GlobalConfig.PrizesFile);
+            List<TournamentModel> tournaments = GlobalConfig.TournamentsFile.FullFilePath().LoadFile().ConvertToTournamentModel();
 
             int currentId = 1;
             if (tournaments.Count > 0)
@@ -72,9 +72,9 @@ namespace TrackerLibrary.DataAccess
                 currentId = tournaments.OrderByDescending(x => x.Id).First().Id + 1;
             }
             model.Id = currentId;
-            model.SaveRoundsToFile(GlobalConfig.MatchupsFile, GlobalConfig.MatchupEntriesFile);
+            model.SaveRoundsToFile();
             tournaments.Add(model);
-            tournaments.SaveToTournamentsFile(GlobalConfig.TournamentsFile);  
+            tournaments.SaveToTournamentsFile();  
         }
 
         public List<PersonModel> GetPerson_All()
@@ -84,7 +84,7 @@ namespace TrackerLibrary.DataAccess
 
         public List<TeamModel> GetTeam_All()
         {
-            return GlobalConfig.TeamsFile.FullFilePath().LoadFile().ConvertToTeamModel(GlobalConfig.PeopleFile);
+            return GlobalConfig.TeamsFile.FullFilePath().LoadFile().ConvertToTeamModel();
         }
     }
 }
