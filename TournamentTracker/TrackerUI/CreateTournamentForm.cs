@@ -47,17 +47,21 @@ namespace TrackerUI
                 return;
             }
 
-            TournamentModel tm = new TournamentModel();
-
-            tm.TournamentName = tournamentNameValue.Text;
-            tm.EntryFee = fee;
-
-            tm.Prizes = selectedPrizes;
-            tm.EnteredTeams = selectedTeams;
+            TournamentModel tm = new TournamentModel
+            {
+                TournamentName = tournamentNameValue.Text,
+                EntryFee = fee,
+                Prizes = selectedPrizes,
+                EnteredTeams = selectedTeams
+            };
 
             TournamentLogic.CreateRounds(tm);
-
             GlobalConfig.Connection.CreateTournament(tm);
+            tm.AlertUsersToNewRound();
+
+            TournamentViewerForm frm = new TournamentViewerForm(tm);
+            frm.Show();
+            this.Close();
         }
 
         private void selectTeamDropDown_SelectedIndexChanged(object sender, EventArgs e)

@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\TextConnectorProcessor.cs" />
+    <Compile Include="EmailLogic.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Models\GlobalConfig.cs" />
     <Compile Include="DataAccess\IDataConnection.cs" />
